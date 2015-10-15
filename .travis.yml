@@ -19,5 +19,6 @@ install:
 
 script: 
  - ./configure --engine-mozilla && make
+ - make test
  - ./configure && make
  - make test
