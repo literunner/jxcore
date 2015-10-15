@@ -17,6 +17,10 @@ install:
   # python which
   - sudo apt-get install python-setuptools
 
-script: 
- - ./configure --engine-mozilla && make
+script:
+ # NOTE: trick used here since Travis CI only seems to check the last command result.
+ - rm -f checkV8Result
  - ./configure && make
+ - SKIP_BROADCAST=yeah make test && echo ok >> checkV8Result
+ - ./configure --engine-mozilla && make
+ - SKIP_BROADCAST=yeah make test && cat checkV8Result
