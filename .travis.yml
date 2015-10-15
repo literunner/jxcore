@@ -19,6 +19,6 @@ install:
 
 script: 
  - ./configure --engine-mozilla && make
- - make test
+ - SKIP_BROADCAST=yeah make test
  - ./configure && make
- - make test
+ - SKIP_BROADCAST=yeah make test
