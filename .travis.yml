@@ -19,4 +19,4 @@ install:
 
 script: 
  - ./configure --engine-mozilla && make
- - ./configure && make
+ - SKIP_BROADCAST=yeah make test
